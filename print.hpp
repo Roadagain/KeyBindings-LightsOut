@@ -13,6 +13,7 @@ enum COLORS
 void init_colors();
 
 void print_board(int width, int height);
+void print_light(int y, int x, bool on);
 
 }
 

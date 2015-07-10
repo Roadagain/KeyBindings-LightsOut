@@ -22,4 +22,10 @@ void print_board(int width, int height)
     }
 }
 
+void print_light(int y, int x, bool on)
+{
+    move(y * 2 - 1, x * 2 - 1);
+    addch(on ? '0' : ' ');
+}
+
 }
