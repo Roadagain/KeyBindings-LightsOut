@@ -16,13 +16,16 @@ board::board(int width, int height) : width(width), height(height)
     lights = new bool*[height + 2]();
     for (int i = 0; i < height + 2; i++){
         lights[i] = new bool[width + 2]();
-        for (int j = 1; j < width + 1; j++){
-            lights[i][j] = (rand() % 2 == 0);
-        }
     }
 
-    // print the board
+    // init and print the board
     print_board(width, height);
+    for (int i = 1; i < height + 1; i++){
+        for (int j = 1; j < width + 1; j++){
+            lights[i][j] = (rand() % 2 == 0);
+            print_light(i, j, lights[i][j]);
+        }
+    }
 }
 
 board::~board()
