@@ -5,6 +5,12 @@
 namespace roadagain
 {
 
+void init_colors()
+{
+    init_pair(ON, COLOR_WHITE, COLOR_WHITE);
+    init_pair(OFF, COLOR_BLACK, COLOR_BLACK);
+}
+
 void print_board(int width, int height)
 {
     const char *characters[] = {"+-", "| "};

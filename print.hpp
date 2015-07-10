@@ -4,6 +4,14 @@
 namespace roadagain
 {
 
+enum COLORS
+{
+    OFF,
+    ON,
+};
+
+void init_colors();
+
 void print_board(int width, int height);
 
 }
