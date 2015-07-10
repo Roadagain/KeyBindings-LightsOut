@@ -3,6 +3,7 @@
 #include <time.h>
 
 #include "lightsout.hpp"
+#include "print.hpp"
 
 namespace roadagain
 {
@@ -19,6 +20,9 @@ board::board(int width, int height) : width(width), height(height)
             lights[i][j] = (rand() % 2 == 0);
         }
     }
+
+    // print the board
+    print_board(width, height);
 }
 
 board::~board()
