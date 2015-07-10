@@ -6,8 +6,8 @@ namespace roadagain
 
 enum COLORS
 {
-    OFF,
     ON,
+    OFF,
 };
 
 void init_colors();
