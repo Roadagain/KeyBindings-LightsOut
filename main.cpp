@@ -8,6 +8,7 @@ int main()
 {
     initscr();
     cbreak();
+    noecho();
     start_color();
     init_colors();
 
