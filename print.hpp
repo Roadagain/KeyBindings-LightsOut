@@ -4,7 +4,7 @@
 namespace roadagain
 {
 
-void print(int width, int height);
+void print_board(int width, int height);
 
 }
 
