@@ -5,7 +5,7 @@
 namespace roadagain
 {
 
-lightsout::lightsout(int width, int height) : width(width), height(height)
+board::board(int width, int height) : width(width), height(height)
 {
     lights = new bool*[height + 2]();
     for (int i = 0; i < height + 2; i++){
@@ -13,7 +13,7 @@ lightsout::lightsout(int width, int height) : width(width), height(height)
     }
 }
 
-lightsout::~lightsout()
+board::~board()
 {
     ;
 }
