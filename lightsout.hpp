@@ -13,6 +13,7 @@ public:
     bool is_perfect();
 
     void move_board(int dy, int dx);
+    void turn();
 
 private:
     int width;
@@ -20,6 +21,9 @@ private:
     bool** lights;
     int y;
     int x;
+
+    static const int dy[];
+    static const int dx[];
 };
 
 }

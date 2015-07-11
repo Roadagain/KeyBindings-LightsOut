@@ -52,4 +52,20 @@ void board::move_board(int dy, int dx)
     move(this->y * 2 - 1, this->x * 2 - 1);
 }
 
+void board::turn()
+{
+    this->lights[this->y][this->x] = !this->lights[this->y][this->x];
+    print_light(this->y, this->x, this->lights[this->y][this->x]);
+    for (int i = 0; i < 4; i++){
+        int ty = this->y + dy[i];
+        int tx = this->x + dx[i];
+
+        this->lights[ty][tx] = !this->lights[ty][tx];
+        print_light(ty, tx, this->lights[ty][tx]);
+    }
+}
+
+const int board::dy[] = {-1, 0, 1, 0};
+const int board::dx[] = {0, -1, 0, 1};
+
 }
