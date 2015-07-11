@@ -8,7 +8,7 @@
 namespace roadagain
 {
 
-board::board(int width, int height) : width(width), height(height), y(0), x(0)
+board::board(int width, int height) : width(width), height(height), y(1), x(1)
 {
     // init seed of rand() by current time
     srand(time(NULL));
@@ -26,6 +26,8 @@ board::board(int width, int height) : width(width), height(height), y(0), x(0)
             print_light(i, j, this->lights[i][j]);
         }
     }
+
+    move(1, 1);
 }
 
 board::~board()
@@ -67,6 +69,7 @@ void board::turn()
         this->lights[ty][tx] = !this->lights[ty][tx];
         print_light(ty, tx, this->lights[ty][tx]);
     }
+    move(this->y * 2 - 1, this->x * 2 + 1);
 }
 
 const int board::dy[] = {-1, 0, 1, 0};
