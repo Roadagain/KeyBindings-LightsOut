@@ -27,7 +27,7 @@ board::board(int width, int height) : width(width), height(height), y(1), x(1)
         }
     }
 
-    move(1, 1);
+    this->move_board(0, 0);
 }
 
 board::~board()
@@ -49,13 +49,17 @@ bool board::is_perfect()
 
 void board::move_board(int dy, int dx)
 {
+    print_light(this->y, this->x, this->lights[this->y][this->x]);
+
     if (0 < this->y + dy && this->y + dy <= this->height){
         this->y += dy;
     }
     if (0 < this->x + dx && this->x + dx <= this->width){
         this->x += dx;
     }
-    move(this->y * 2 - 1, this->x * 2 - 1);
+
+    bool on = this->lights[this->y][this->x];
+    print_character(this->y, this->x, on ? 'o' : 'x', on ? ON : OFF);
 }
 
 void board::turn()
@@ -71,7 +75,9 @@ void board::turn()
             print_light(ty, tx, this->lights[ty][tx]);
         }
     }
-    move(this->y * 2 - 1, this->x * 2 + 1);
+
+    bool on = this->lights[this->y][this->x];
+    print_character(this->y, this->x, on ? 'o' : 'x', on ? ON : OFF);
 }
 
 const int board::dy[] = {-1, 0, 1, 0};
