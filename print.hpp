@@ -6,7 +6,7 @@ namespace roadagain
 
 enum COLORS
 {
-    ON,
+    ON = 1,
     OFF,
 };
 
