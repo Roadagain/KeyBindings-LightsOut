@@ -8,7 +8,7 @@
 namespace roadagain
 {
 
-board::board(int width, int height) : width(width), height(height)
+board::board(int width, int height) : width(width), height(height), y(0), x(0)
 {
     // init seed of rand() by current time
     srand(time(NULL));
@@ -43,6 +43,12 @@ bool board::is_perfect()
         }
     }
     return true;
+}
+
+void board::move_board(int dy, int dx)
+{
+    this->y = (this->y - 1 + dy + this->height) % this->height + 1;
+    this->x = (this->x - 1 + dx + this->width) % this->width + 1;
 }
 
 }

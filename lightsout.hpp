@@ -12,10 +12,14 @@ public:
 
     bool is_perfect();
 
+    void move_board(int dy, int dx);
+
 private:
     int width;
     int height;
     bool** lights;
+    int y;
+    int x;
 };
 
 }
