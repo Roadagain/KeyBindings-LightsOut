@@ -13,7 +13,27 @@ int main()
     init_colors();
 
     board b(5, 5);
-    getch();
+    while (!b.is_perfect()){
+        char c = getch();
+
+        switch (c){
+        case 'h':
+            b.move_board(0, -1);
+            break;
+        case 'j':
+            b.move_board(1, 0);
+            break;
+        case 'k':
+            b.move_board(-1, 0);
+            break;
+        case 'l':
+            b.move_board(0, 1);
+            break;
+        case '\n':
+            b.turn();
+            break;
+        }
+    }
 
     endwin();
     return 0;
