@@ -13,17 +13,17 @@ board::board(int width, int height) : width(width), height(height), y(0), x(0)
     // init seed of rand() by current time
     srand(time(NULL));
 
-    lights = new bool*[height + 2]();
+    this->lights = new bool*[height + 2]();
     for (int i = 0; i < height + 2; i++){
-        lights[i] = new bool[width + 2]();
+        this->lights[i] = new bool[width + 2]();
     }
 
     // init and print the board
     print_board(width, height);
     for (int i = 1; i < height + 1; i++){
         for (int j = 1; j < width + 1; j++){
-            lights[i][j] = (rand() % 2 == 0);
-            print_light(i, j, lights[i][j]);
+            this->lights[i][j] = (rand() % 2 == 0);
+            print_light(i, j, this->lights[i][j]);
         }
     }
 }
@@ -61,8 +61,8 @@ void board::turn()
     this->lights[this->y][this->x] = !this->lights[this->y][this->x];
     print_light(this->y, this->x, this->lights[this->y][this->x]);
     for (int i = 0; i < 4; i++){
-        int ty = this->y + dy[i];
-        int tx = this->x + dx[i];
+        int ty = this->y + board::dy[i];
+        int tx = this->x + board::dx[i];
 
         this->lights[ty][tx] = !this->lights[ty][tx];
         print_light(ty, tx, this->lights[ty][tx]);
