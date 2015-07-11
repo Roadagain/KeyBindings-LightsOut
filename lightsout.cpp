@@ -66,8 +66,10 @@ void board::turn()
         int ty = this->y + board::dy[i];
         int tx = this->x + board::dx[i];
 
-        this->lights[ty][tx] = !this->lights[ty][tx];
-        print_light(ty, tx, this->lights[ty][tx]);
+        if (0 < ty && ty <= this->height && 0 < tx && tx <= this->width){
+            this->lights[ty][tx] = !this->lights[ty][tx];
+            print_light(ty, tx, this->lights[ty][tx]);
+        }
     }
     move(this->y * 2 - 1, this->x * 2 + 1);
 }
