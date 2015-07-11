@@ -10,6 +10,8 @@ public:
     board(int width, int height);
     ~board();
 
+    bool is_perfect();
+
 private:
     int width;
     int height;
