@@ -47,8 +47,12 @@ bool board::is_perfect()
 
 void board::move_board(int dy, int dx)
 {
-    this->y = (this->y - 1 + dy + this->height) % this->height + 1;
-    this->x = (this->x - 1 + dx + this->width) % this->width + 1;
+    if (0 < this->y + dy && this->y + dy <= this->height){
+        this->y += dy;
+    }
+    if (0 < this->x + dx && this->x + dx <= this->width){
+        this->x += dx;
+    }
     move(this->y * 2 - 1, this->x * 2 - 1);
 }
 
