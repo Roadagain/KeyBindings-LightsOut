@@ -7,8 +7,8 @@ namespace roadagain
 
 void init_colors()
 {
-    init_pair(ON, COLOR_WHITE, COLOR_WHITE);
-    init_pair(OFF, COLOR_BLACK, COLOR_BLACK);
+    init_pair(ON, COLOR_BLACK, COLOR_WHITE);
+    init_pair(OFF, COLOR_WHITE, COLOR_BLACK);
 }
 
 void print_board(int width, int height)
@@ -24,8 +24,16 @@ void print_board(int width, int height)
 
 void print_light(int y, int x, bool on)
 {
+    print_character(y, x, ' ', on ? ON : OFF);
+}
+
+void print_character(int y, int x, char c, int color)
+{
     move(y * 2 - 1, x * 2 - 1);
-    addch(on ? '0' : ' ');
+    attrset(COLOR_PAIR(color));
+    addch(c);
+    attroff(color);
+    move(y * 2 - 1, x * 2 - 1);
 }
 
 }
