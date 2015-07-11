@@ -49,6 +49,7 @@ void board::move_board(int dy, int dx)
 {
     this->y = (this->y - 1 + dy + this->height) % this->height + 1;
     this->x = (this->x - 1 + dx + this->width) % this->width + 1;
+    move(this->y * 2 - 1, this->x * 2 - 1);
 }
 
 }
