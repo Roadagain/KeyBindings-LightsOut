@@ -8,7 +8,7 @@
 namespace roadagain
 {
 
-board::board(int width, int height) : width(width), height(height), y(1), x(1)
+board::board(int width, int height) : width(width), height(height), y(0), x(0)
 {
     // init seed of rand() by current time and randomize turn point
     srand(time(NULL));
