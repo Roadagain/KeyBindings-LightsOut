@@ -40,6 +40,7 @@ keybindings::keybindings(const char* name)
     // open file
     std::string filename = "keybindings/";
     filename += name;
+    filename += ".key";
     std::ifstream in(filename.c_str(), std::ios::in);
     std::string s;
 
