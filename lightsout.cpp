@@ -49,7 +49,7 @@ bool board::is_perfect()
 
 void board::move_board(int dy, int dx)
 {
-    print_light(this->y, this->x, this->lights[this->y][this->x]);
+    clear_current(this->y, this->x);
 
     if (0 < this->y + dy && this->y + dy <= this->height){
         this->y += dy;
@@ -74,9 +74,6 @@ void board::turn()
             print_light(ty, tx, this->lights[ty][tx]);
         }
     }
-
-    bool on = this->lights[this->y][this->x];
-    print_character(this->y, this->x, on ? 'o' : 'x', on ? ON : OFF);
 }
 
 const int board::dy[] = {-1, 0, 1, 0};
