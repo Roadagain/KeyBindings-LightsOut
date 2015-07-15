@@ -32,7 +32,10 @@ board::board(int width, int height) : width(width), height(height), y(1), x(1)
 
 board::~board()
 {
-    ;
+    for (int i = 0; i < this->height + 2; i++){
+        delete[] this->lights[i];
+    }
+    delete[] this->lights;
 }
 
 bool board::is_perfect()
