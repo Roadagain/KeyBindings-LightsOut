@@ -40,7 +40,10 @@ board::board(int width, int height) : width(width), height(height), y(1), x(1)
 
 board::~board()
 {
-    ;
+    for (int i = 0; i < this->height + 2; i++){
+        delete[] this->lights[i];
+    }
+    delete[] this->lights;
 }
 
 bool board::is_perfect()
@@ -57,7 +60,7 @@ bool board::is_perfect()
 
 void board::move_board(int dy, int dx)
 {
-    print_light(this->y, this->x, this->lights[this->y][this->x]);
+    clear_current(this->y, this->x);
 
     if (0 <= this->y + dy && this->y + dy < this->height){
         this->y += dy;
@@ -66,8 +69,7 @@ void board::move_board(int dy, int dx)
         this->x += dx;
     }
 
-    bool on = this->lights[this->y][this->x];
-    print_character(this->y, this->x, on ? 'o' : 'x', on ? ON : OFF);
+    print_current(this->y, this->x);
 }
 
 void board::turn(int y, int x, bool print)
@@ -86,11 +88,6 @@ void board::turn(int y, int x, bool print)
                 print_light(ty, tx, this->lights[ty][tx]);
             }
         }
-    }
-
-    if (print){
-        bool on = this->lights[y][x];
-        print_character(y, x, on ? 'o' : 'x', on ? ON : OFF);
     }
 }
 
