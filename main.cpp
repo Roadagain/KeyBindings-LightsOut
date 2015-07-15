@@ -38,6 +38,9 @@ int main(int argc, char** argv)
         }
     }
 
+    move(12, 0);
+    printw("COMPLETED!");
+    getch();
     endwin();
     return 0;
 }
