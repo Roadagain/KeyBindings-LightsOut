@@ -9,6 +9,7 @@ int main()
     initscr();
     cbreak();
     noecho();
+    curs_set(0);
     start_color();
     init_colors();
 
