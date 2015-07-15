@@ -2,6 +2,7 @@
 
 #include "print.hpp"
 #include "lightsout.hpp"
+#include "keybindings.hpp"
 using namespace roadagain;
 
 int main()
@@ -14,26 +15,12 @@ int main()
     init_colors();
 
     board b(5, 5);
+    keybindings k("emacs");
     while (!b.is_perfect()){
         char c = getch();
+        const char* key = keyname(c);
 
-        switch (c){
-        case 'h':
-            b.move_board(0, -1);
-            break;
-        case 'j':
-            b.move_board(1, 0);
-            break;
-        case 'k':
-            b.move_board(-1, 0);
-            break;
-        case 'l':
-            b.move_board(0, 1);
-            break;
-        case '\n':
-            b.turn();
-            break;
-        }
+        b.move_board(k.dy(key), k.dx(key));
     }
 
     endwin();
