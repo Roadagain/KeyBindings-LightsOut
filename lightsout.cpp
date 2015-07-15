@@ -58,8 +58,7 @@ void board::move_board(int dy, int dx)
         this->x += dx;
     }
 
-    bool on = this->lights[this->y][this->x];
-    print_character(this->y, this->x, on ? 'o' : 'x', on ? ON : OFF);
+    print_current(this->y, this->x);
 }
 
 void board::turn()
