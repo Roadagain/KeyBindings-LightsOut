@@ -1,7 +1,7 @@
 # KeyBindings-Lightsout
 
 CC = g++
-SRC = main.cpp lightsout.cpp print.cpp
+SRC = main.cpp lightsout.cpp print.cpp keybindings.cpp
 OBJ = $(SRC:.cpp=.o)
 CFLAG = -Wall -Wextra -O3
 LIB = -lncurses
