@@ -5,6 +5,8 @@
 namespace roadagain
 {
 
+const char* characters[] = {"+-", "| "};
+
 void init_colors()
 {
     init_pair(ON, COLOR_BLACK, COLOR_WHITE);
@@ -14,7 +16,6 @@ void init_colors()
 
 void print_board(int width, int height)
 {
-    const char *characters[] = {"+-", "| "};
     for (int i = 0; i < height * 2 + 1; i++){
         move(i, 0);
         for (int j = 0; j < width * 2 + 1; j++){
@@ -50,6 +51,19 @@ void print_current(int y, int x)
         }
     }
     attroff(CURRENT);
+}
+
+void clear_current(int y, int x)
+{
+    for (int i = y * 2 - 2; i < y * 2 + 1; i++){
+        for (int j = x * 2 - 2; j < x * 2 + 1; j++){
+            if (i == y * 2 - 1 && j == x * 2 - 1){
+                continue;
+            }
+            move(i, j);
+            addch(characters[i % 2][j % 2]);
+        }
+    }
 }
 
 }
