@@ -23,7 +23,7 @@ key::key(const char* s)
 bool key::operator==(const char* s) const
 {
     if (this->ctrl){
-        return (s[0] == '^' && toupper(s[1]) == toupper(this->c));
+        return (s[0] == '^' && std::toupper(s[1]) == std::toupper(this->c));
     }
     else {
         return (s[0] == this->c);
