@@ -9,6 +9,7 @@ struct key
     bool ctrl;
     char c;
 
+    key();
     key(const char* s);
     bool operator==(const char* s) const;
 };
@@ -16,7 +17,7 @@ struct key
 class keybindings
 {
 public:
-    keybindings(key up, key down, key left, key right);
+    keybindings(const char* name);
 
     int dx(const char* s);
     int dy(const char* s);

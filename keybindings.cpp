@@ -8,6 +8,11 @@
 namespace roadagain
 {
 
+key::key() : ctrl(false), c(0)
+{
+    ;
+}
+
 key::key(const char* s)
 {
     if (std::strncmp("Ctrl", s, 4) == 0){
@@ -30,7 +35,7 @@ bool key::operator==(const char* s) const
     }
 }
 
-keybinings::keybindings(const char* name)
+keybindings::keybindings(const char* name)
 {
     // open file
     std::string filename = "keybindings/";
