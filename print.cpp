@@ -26,16 +26,12 @@ void print_board(int width, int height)
 
 void print_light(int y, int x, bool on)
 {
-    print_character(y, x, ' ', on ? ON : OFF);
-}
-
-void print_character(int y, int x, char c, int color)
-{
     move(y * 2 - 1, x * 2 - 1);
-    attrset(COLOR_PAIR(color));
-    addch(c);
-    attroff(color);
+    attrset(COLOR_PAIR(on ? ON : OFF));
+    addch(' ');
+    attroff(COLOR_PAIR(on ? ON : OFF));
     move(y * 2 - 1, x * 2 - 1);
+    attrset(0);
 }
 
 void print_current(int y, int x)
@@ -50,7 +46,7 @@ void print_current(int y, int x)
             addch('*');
         }
     }
-    attroff(CURRENT);
+    attroff(COLOR_PAIR(CURRENT));
 }
 
 void clear_current(int y, int x)
