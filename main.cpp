@@ -1,7 +1,7 @@
 #include <ncurses.h>
 #include <cstring>
-
 #include <string>
+using namespace std;
 
 #include "print.hpp"
 #include "lightsout.hpp"
@@ -17,9 +17,9 @@ int main(int argc, char** argv)
     start_color();
     init_colors();
 
-    std::string key = "vim";
+    string key = "vim";
     for (int i = 1; i < argc; i++){
-        if (std::strncmp("--key=", argv[i], 6) == 0){
+        if (strncmp("--key=", argv[i], 6) == 0){
             key = argv[i] + 6;
         }
     }
