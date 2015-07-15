@@ -20,7 +20,7 @@ key::key(const char* s)
     }
 }
 
-key::key(const char* s)
+bool key::operator==(const char* s) const
 {
     if (this->ctrl){
         return (s[0] == '^' && toupper(s[1]) == toupper(this->c));
