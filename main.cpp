@@ -1,6 +1,7 @@
 #include <ncurses.h>
 #include <cstring>
 #include <cstdlib>
+using namespace std;
 
 #include "print.hpp"
 #include "lightsout.hpp"
@@ -17,11 +18,11 @@ int main(int argc, char** argv)
     int width = 5;
     int height = 5;
     for (int i = 1; i < argc; i++){
-        if (std::strncmp("--width=", argv[i], 8) == 0){
-            width = std::atoi(argv[i] + 8);
+        if (strncmp("--width=", argv[i], 8) == 0){
+            width = atoi(argv[i] + 8);
         }
-        else if (std::strncmp("--height=", argv[i], 9) == 0){
-            height = std::atoi(argv[i] + 9);
+        else if (strncmp("--height=", argv[i], 9) == 0){
+            height = atoi(argv[i] + 9);
         }
     }
 
