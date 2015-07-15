@@ -29,11 +29,11 @@ void print_light(int y, int x, bool on)
 
 void print_character(int y, int x, char c, int color)
 {
-    move(y * 2 - 1, x * 2 - 1);
+    move(y * 2 + 1, x * 2 + 1);
     attrset(COLOR_PAIR(color));
     addch(c);
     attroff(color);
-    move(y * 2 - 1, x * 2 - 1);
+    move(y * 2 + 1, x * 2 + 1);
 }
 
 }

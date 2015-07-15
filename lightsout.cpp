@@ -13,15 +13,15 @@ board::board(int width, int height) : width(width), height(height), y(1), x(1)
     // init seed of rand() by current time
     srand(time(NULL));
 
-    this->lights = new bool*[height + 2]();
-    for (int i = 0; i < height + 2; i++){
-        this->lights[i] = new bool[width + 2]();
+    this->lights = new bool*[height]();
+    for (int i = 0; i < height; i++){
+        this->lights[i] = new bool[width]();
     }
 
     // init and print the board
     print_board(width, height);
-    for (int i = 1; i < height + 1; i++){
-        for (int j = 1; j < width + 1; j++){
+    for (int i = 0; i < height; i++){
+        for (int j = 0; j < width; j++){
             this->lights[i][j] = (rand() % 2 == 0);
             print_light(i, j, this->lights[i][j]);
         }
@@ -37,8 +37,8 @@ board::~board()
 
 bool board::is_perfect()
 {
-    for (int i = 1; i <= this->height + 1; i++){
-        for (int j = 1; j <= this->width + 1; j++){
+    for (int i = 0; i < this->height; i++){
+        for (int j = 0; j < this->width; j++){
             if (this->lights[i][j]){
                 return false;
             }
@@ -51,10 +51,10 @@ void board::move_board(int dy, int dx)
 {
     print_light(this->y, this->x, this->lights[this->y][this->x]);
 
-    if (0 < this->y + dy && this->y + dy <= this->height){
+    if (0 <= this->y + dy && this->y + dy < this->height){
         this->y += dy;
     }
-    if (0 < this->x + dx && this->x + dx <= this->width){
+    if (0 <= this->x + dx && this->x + dx < this->width){
         this->x += dx;
     }
 
@@ -70,7 +70,7 @@ void board::turn()
         int ty = this->y + board::dy[i];
         int tx = this->x + board::dx[i];
 
-        if (0 < ty && ty <= this->height && 0 < tx && tx <= this->width){
+        if (0 <= ty && ty < this->height && 0 <= tx && tx < this->width){
             this->lights[ty][tx] = !this->lights[ty][tx];
             print_light(ty, tx, this->lights[ty][tx]);
         }
