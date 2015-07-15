@@ -13,6 +13,7 @@ public:
     bool is_perfect();
 
     void move_board(int dy, int dx);
+    void turn(int y, int x, bool print);
     void turn();
 
 private:
