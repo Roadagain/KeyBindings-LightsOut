@@ -28,9 +28,14 @@ int main(int argc, char** argv)
     keybindings k(key.c_str());
     while (!b.is_perfect()){
         char c = getch();
-        const char* key = keyname(c);
 
-        b.move_board(k.dy(key), k.dx(key));
+        if (c == '\n'){
+            b.turn();
+        }
+        else {
+            const char* key = keyname(c);
+            b.move_board(k.dy(key), k.dx(key));
+        }
     }
 
     endwin();
